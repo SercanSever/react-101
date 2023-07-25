@@ -1,4 +1,5 @@
 import React from "react";
+import { FaPlus } from "react-icons/fa";
 
 const SearchItem = ({ search, setSearch }) => {
   return (
@@ -12,6 +13,9 @@ const SearchItem = ({ search, setSearch }) => {
         value={search}
         onChange={(e) => setSearch(e.target.value)}
       />
+      {/* <button type="submit" aria-label="Add Item">
+        <FaPlus />
+      </button> */}
     </form>
   );
 };
