@@ -48,9 +48,9 @@ function App() {
       {/* Overrides Header.defaultProps */}
       <Header title="Hello World!" />
       <Content
-        items={items
-          .filter((item) => item.item.toLowerCase())
-          .includes(search.toLowerCase())}
+        items={items.filter((item) =>
+          item.item.toLowerCase().includes(search.toLowerCase())
+        )}
         handleCheck={handleCheck}
         handleDelete={handleDelete}
       />
