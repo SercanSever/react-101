@@ -1,20 +1,24 @@
 import Header from "./Header.js";
 import Content from "./Content";
 import Footer from "./Footer";
-import { useState } from "react";
 import AddItem from "./AddItem.js";
 import SearchItem from "./SearchItem.js";
+import { useState, useEffect } from "react";
 
 function App() {
+  const [items, setItems] = useState(
+    JSON.parse(localStorage.getItem("shoppingList")) || []
+  );
   const [newItem, setNewItem] = useState("");
   const [search, setSearch] = useState("");
-  const [items, setItems] = useState(
-    JSON.parse(localStorage.getItem("shoppingList"))
-  );
+
+  // async
+  useEffect(() => {
+    localStorage.setItem("shoppingList", JSON.stringify(items));
+  }, [items]);
 
   const setAndSaveItems = (newItems) => {
     setItems(newItems);
-    localStorage.setItem("shoppingList", JSON.stringify(newItems));
   };
 
   const handleCheck = (id) => {
