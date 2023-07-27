@@ -23,7 +23,6 @@ function App() {
           throw Error("Did not receive expected data");
         }
         const listItems = await response.json();
-        console.log(listItems);
         setItems(listItems);
         setFetchError(null);
       } catch (error) {
@@ -34,7 +33,7 @@ function App() {
     };
     setTimeout(() => {
       (async () => await fetchItems())();
-    }, 2);
+    }, 2000);
   }, []);
 
   const setAndSaveItems = (newItems) => {
